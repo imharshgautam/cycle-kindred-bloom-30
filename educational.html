@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Hub</title>
+    <link rel="stylesheet" href="educational.css">
+</head>
+<body>
+    <main class="container">
+        <h1 class="title">Educational Hub</h1>
+        <p class="subtitle">Evidence-based resources about menstrual and reproductive health.</p>
+
+        <!-- Search Section -->
+        <div class="search-container">
+            <div class="search-wrapper">
+                <span class="search-icon">🔍</span>
+                <input 
+                    type="search" 
+                    placeholder="Search for topics, questions, or keywords..." 
+                    id="searchInput"
+                    class="search-input"
+                >
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tabs-list">
+                <button class="tab active" data-tab="articles">
+                    📚 Articles & Resources
+                </button>
+                <button class="tab" data-tab="faq">
+                    ❓ FAQ
+                </button>
+            </div>
+
+            <!-- Articles Tab -->
+            <div class="tab-content active" id="articles-content">
+                <!-- Category Filters -->
+                <div class="category-filters">
+                    <button class="filter-btn active" data-category="all">All Topics</button>
+                    <button class="filter-btn" data-category="basics">Cycle Basics</button>
+                    <button class="filter-btn" data-category="health">Health Conditions</button>
+                    <button class="filter-btn" data-category="nutrition">Nutrition</button>
+                    <button class="filter-btn" data-category="fitness">Fitness</button>
+                </div>
+
+                <div class="articles-grid" id="articles-grid">
+                    <!-- Articles will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- FAQ Tab -->
+            <div class="tab-content" id="faq-content">
+                <div class="accordion" id="faq-accordion">
+                    <!-- FAQs will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="educational.js"></script>
+</body>
+</html>
