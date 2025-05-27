@@ -6,28 +6,28 @@ const testimonials = [
   {
     name: "Sarah K.",
     age: 28,
-    avatar: "/placeholder.svg",
+    avatar: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
     initials: "SK",
     content: "Luna Cycle has changed my relationship with my period. The personalized recommendations have helped me manage my PMS symptoms so much better!"
   },
   {
     name: "Maya R.",
     age: 34,
-    avatar: "/placeholder.svg",
+    avatar: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
     initials: "MR",
     content: "Being able to consult with a gynecologist from home has been a game-changer. I got answers to questions I was too embarrassed to ask in person."
   },
   {
     name: "Jamie L.",
     age: 22,
-    avatar: "/placeholder.svg",
+    avatar: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
     initials: "JL",
     content: "The educational resources helped me understand my PCOS in ways my doctor never explained. I feel more in control of my health now."
   },
   {
     name: "Priya S.",
     age: 31,
-    avatar: "/placeholder.svg",
+    avatar: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
     initials: "PS",
     content: "I love how accurate the tracker is! It's predicted my cycle perfectly for six months straight, and the symptom tracking helps me spot patterns."
   }
@@ -46,11 +46,15 @@ const TestimonialSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-white border-2 hover:border-primary/30 card-hover">
+            <Card key={index} className="bg-white border-2 hover:border-primary/30 card-hover group">
               <CardContent className="p-6">
                 <div className="mb-6 flex items-center">
                   <Avatar className="h-12 w-12 border-2 border-primary/20">
-                    <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
+                    <AvatarImage 
+                      src={testimonial.avatar} 
+                      alt={testimonial.name}
+                      className="transform transition-all duration-300 group-hover:scale-110"
+                    />
                     <AvatarFallback>{testimonial.initials}</AvatarFallback>
                   </Avatar>
                   <div className="ml-3">

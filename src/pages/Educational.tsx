@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
@@ -14,42 +13,42 @@ const articles = [
     id: 1,
     title: "Understanding Your Menstrual Cycle",
     category: "basics",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
     excerpt: "Learn about the four phases of your menstrual cycle and the hormonal changes that occur during each phase."
   },
   {
     id: 2,
     title: "PMS vs. PMDD: What's the Difference?",
     category: "health",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
     excerpt: "Understand the symptoms, causes, and treatments for premenstrual syndrome and premenstrual dysphoric disorder."
   },
   {
     id: 3,
     title: "Nutrition for Hormonal Balance",
     category: "nutrition",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
     excerpt: "Discover which foods support hormonal balance throughout your cycle and which ones to avoid."
   },
   {
     id: 4,
     title: "Exercise Through Your Cycle",
     category: "fitness",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
     excerpt: "Learn how to adjust your workout routine based on your menstrual cycle phases for optimal results."
   },
   {
     id: 5,
     title: "Managing Endometriosis Naturally",
     category: "health",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
     excerpt: "Natural approaches to managing endometriosis symptoms alongside medical treatment."
   },
   {
     id: 6,
     title: "The Science of Period Pain",
     category: "basics",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
     excerpt: "Understanding what causes menstrual cramps and evidence-based ways to find relief."
   }
 ];
@@ -185,7 +184,7 @@ const Educational = () => {
                           <img 
                             src={article.image} 
                             alt={article.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover transform transition-all duration-300 hover:scale-110"
                           />
                         </div>
                         <CardContent className="p-5">

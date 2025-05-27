@@ -9,42 +9,48 @@ const featureItems = [
     title: "Period Tracker",
     description: "Track your cycles, symptoms, and moods to better understand your body's patterns.",
     link: "/tracker",
-    color: "from-brand-pink to-brand-lavender"
+    color: "from-brand-pink to-brand-lavender",
+    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
   },
   {
     icon: <Dumbbell className="h-8 w-8 text-primary" />,
     title: "Personalized Recommendations",
     description: "Get tailored diet, exercise, and self-care recommendations based on your cycle phase.",
     link: "/recommendations",
-    color: "from-brand-lavender to-brand-teal"
+    color: "from-brand-lavender to-brand-teal",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
   },
   {
     icon: <BookOpen className="h-8 w-8 text-primary" />,
     title: "Educational Hub",
     description: "Access reliable information about menstrual health, hormones, and reproductive wellness.",
     link: "/learn",
-    color: "from-brand-teal to-brand-mint"
+    color: "from-brand-teal to-brand-mint",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
   },
   {
     icon: <ShoppingBag className="h-8 w-8 text-primary" />,
     title: "Essential Products",
     description: "Shop for period products, supplements, and self-care items with fast, discreet delivery.",
     link: "/shop",
-    color: "from-brand-mint to-brand-peach"
+    color: "from-brand-mint to-brand-peach",
+    image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
   },
   {
     icon: <Video className="h-8 w-8 text-primary" />,
     title: "Professional Support",
     description: "Connect with therapists and gynecologists through secure video consultations.",
     link: "/consult",
-    color: "from-brand-peach to-brand-mauve"
+    color: "from-brand-peach to-brand-mauve",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
   },
   {
     icon: <Activity className="h-8 w-8 text-primary" />,
     title: "Cycle Analytics",
     description: "Gain insights into your cycle patterns and predict future periods with advanced analytics.",
     link: "/analytics",
-    color: "from-brand-mauve to-brand-pink"
+    color: "from-brand-mauve to-brand-pink",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
   }
 ];
 
@@ -70,7 +76,14 @@ const Features = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {featureItems.map((item, index) => (
             <Link to={item.link} key={index} className="group">
-              <Card className="h-full border-2 border-muted hover:border-primary/20 transform transition-all duration-500 hover:scale-105 hover:-translate-y-4 hover:shadow-2xl perspective-1000 group-hover:rotate-1">
+              <Card className="h-full border-2 border-muted hover:border-primary/20 transform transition-all duration-500 hover:scale-105 hover:-translate-y-4 hover:shadow-2xl perspective-1000 group-hover:rotate-1 overflow-hidden">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-110"
+                  />
+                </div>
                 <CardContent className="p-6 flex flex-col items-center text-center relative overflow-hidden">
                   {/* Gradient overlay */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
