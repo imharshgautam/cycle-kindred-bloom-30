@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
@@ -13,6 +12,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { CheckCircle, Calendar as CalendarIcon, CircleAlert } from "lucide-react";
 import { format } from "date-fns";
 import { useToast } from "@/hooks/use-toast";
+import AIPrediction from "@/components/tracker/AIPrediction";
+import { CycleData } from "@/services/cyclePrediction";
 
 const symptomsOptions = [
   "Cramps", "Headache", "Backache", "Fatigue", 
@@ -36,6 +37,28 @@ const PeriodTracker = () => {
   const [selectedMood, setSelectedMood] = useState<string>("calm");
   const [notes, setNotes] = useState("");
   const { toast } = useToast();
+
+  // Simulated historical data for AI predictions
+  const [historicalData] = useState<CycleData[]>([
+    {
+      date: "2024-12-15",
+      flowIntensity: 2,
+      symptoms: ["Cramps", "Fatigue"],
+      mood: "irritable"
+    },
+    {
+      date: "2024-11-18",
+      flowIntensity: 3,
+      symptoms: ["Headache", "Bloating", "Mood Swings"],
+      mood: "sad"
+    },
+    {
+      date: "2024-10-20",
+      flowIntensity: 2,
+      symptoms: ["Cramps", "Backache"],
+      mood: "calm"
+    }
+  ]);
 
   const toggleSymptom = (symptom: string) => {
     if (selectedSymptoms.includes(symptom)) {
@@ -77,7 +100,7 @@ const PeriodTracker = () => {
             <p className="text-muted-foreground mb-8">Monitor your cycle, symptoms, and patterns over time.</p>
             
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-1">
+              <div className="lg:col-span-1 space-y-6">
                 <Card className="border-2">
                   <CardHeader>
                     <CardTitle>Cycle Overview</CardTitle>
@@ -116,6 +139,11 @@ const PeriodTracker = () => {
                     </div>
                   </CardContent>
                 </Card>
+
+                <AIPrediction 
+                  historicalData={historicalData}
+                  lastPeriodDate={new Date("2024-12-15")}
+                />
               </div>
               
               <div className="lg:col-span-2">
