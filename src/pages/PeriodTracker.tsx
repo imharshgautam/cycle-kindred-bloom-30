@@ -93,15 +93,33 @@ const PeriodTracker = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <NavBar />
-      <main className="flex-grow py-12">
-        <div className="container mx-auto px-4">
+      <main className="flex-grow py-12 relative">
+        {/* Gradient & blob background */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-0"
+        >
+          {/* Big gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-pink-100/80 via-indigo-50/70 to-teal-100/70" />
+          {/* Blurry abstract blobs */}
+          <div className="absolute -top-20 -left-24 w-96 h-96 bg-pink-300/30 rounded-full blur-3xl rotate-12 animate-float" />
+          <div className="absolute -bottom-24 right-0 w-80 h-80 bg-sky-200/30 rounded-full blur-2xl animate-float-delayed" />
+          <div className="absolute top-1/2 left-1/4 w-60 h-60 bg-violet-300/30 rounded-full blur-2xl opacity-60 animate-float" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">Period Tracker</h1>
-            <p className="text-muted-foreground mb-8">Monitor your cycle, symptoms, and patterns over time.</p>
-            
+            <h1
+              className="text-4xl md:text-5xl font-black mb-2 bg-gradient-to-r from-pink-500 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg tracking-tight animate-fade-in"
+            >
+              Period Tracker
+            </h1>
+            <p className="text-muted-foreground mb-8 text-lg font-medium animate-fade-in animation-delay-200">
+              Monitor your cycle, symptoms, and patterns over time.
+            </p>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
               <div className="lg:col-span-1 space-y-6">
-                <Card className="border-2">
+                <Card className="border-2 card-3d hover:scale-105 hover:shadow-3xl transition-transform duration-300 bg-white/80 backdrop-blur-sm animate-fade-in">
                   <CardHeader>
                     <CardTitle>Cycle Overview</CardTitle>
                     <CardDescription>Your current cycle information</CardDescription>
@@ -139,15 +157,16 @@ const PeriodTracker = () => {
                     </div>
                   </CardContent>
                 </Card>
-
-                <AIPrediction 
-                  historicalData={historicalData}
-                  lastPeriodDate={new Date("2024-12-15")}
-                />
+                <div className="animate-fade-in animation-delay-200">
+                  <AIPrediction 
+                    historicalData={historicalData}
+                    lastPeriodDate={new Date("2024-12-15")}
+                  />
+                </div>
               </div>
               
               <div className="lg:col-span-2">
-                <Card className="border-2">
+                <Card className="border-2 card-3d hover:scale-[1.03] hover:shadow-3xl transition-all duration-300 bg-white/80 backdrop-blur-lg animate-fade-in animation-delay-200">
                   <CardHeader>
                     <CardTitle>Log Today's Information</CardTitle>
                     <CardDescription>Record how you're feeling and any symptoms</CardDescription>
