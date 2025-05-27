@@ -10,6 +10,8 @@ import PeriodTracker from "./pages/PeriodTracker";
 import Educational from "./pages/Educational";
 import Store from "./pages/Store";
 import Consultation from "./pages/Consultation";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import FloatingChatbot from "./components/chat/FloatingChatbot";
 
 const queryClient = new QueryClient();
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/learn" element={<Educational />} />
           <Route path="/shop" element={<Store />} />
           <Route path="/consult" element={<Consultation />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <FloatingChatbot />
