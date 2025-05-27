@@ -108,7 +108,7 @@ const PeriodTracker = () => {
           <div className="absolute top-1/2 left-1/4 w-60 h-60 bg-violet-300/30 rounded-full blur-2xl opacity-60 animate-float" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <h1
               className="text-4xl md:text-5xl font-black mb-2 bg-gradient-to-r from-pink-500 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg tracking-tight animate-fade-in"
             >
@@ -117,9 +117,10 @@ const PeriodTracker = () => {
             <p className="text-muted-foreground mb-8 text-lg font-medium animate-fade-in animation-delay-200">
               Monitor your cycle, symptoms, and patterns over time.
             </p>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-
-              <div className="lg:col-span-1 flex flex-col gap-6 h-full animate-fade-in">
+            {/* Responsive grid: sidebar (lg:col-span-4) & main (lg:col-span-8) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+              {/* Sidebar: 4 columns on lg+ screens */}
+              <div className="lg:col-span-4 flex flex-col gap-6 h-full animate-fade-in">
                 <Card className="border-2 card-3d hover:scale-105 hover:shadow-3xl transition-transform duration-300 bg-white/80 backdrop-blur-sm flex-1 min-h-[350px]">
                   <CardHeader>
                     <CardTitle>Cycle Overview</CardTitle>
@@ -158,21 +159,19 @@ const PeriodTracker = () => {
                     </div>
                   </CardContent>
                 </Card>
-                
                 <div className="animate-fade-in animation-delay-200">
                   <AIPrediction 
                     historicalData={historicalData}
                     lastPeriodDate={new Date("2024-12-15")}
                   />
                 </div>
-                
                 <div className="animate-fade-in animation-delay-300">
                   <HistoryTable data={historicalData} />
                 </div>
               </div>
-              
-              <div className="lg:col-span-2">
-                <Card className="border-2 card-3d hover:scale-[1.03] hover:shadow-3xl transition-all duration-300 bg-white/80 backdrop-blur-lg animate-fade-in animation-delay-200 min-h-[680px] flex flex-col justify-between">
+              {/* Main Log Area: 8 columns on lg+ screens */}
+              <div className="lg:col-span-8">
+                <Card className="border-2 card-3d hover:scale-[1.03] hover:shadow-3xl transition-all duration-300 bg-white/80 backdrop-blur-lg animate-fade-in animation-delay-200 min-h-[750px] flex flex-col justify-between">
                   <CardHeader>
                     <CardTitle>Log Today's Information</CardTitle>
                     <CardDescription>Record how you're feeling and any symptoms</CardDescription>
