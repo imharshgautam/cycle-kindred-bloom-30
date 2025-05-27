@@ -89,7 +89,7 @@ const FloatingChatbot = () => {
     return (
       <Button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 left-6 w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 bg-primary hover:bg-primary/90 z-50"
+        className="fixed bottom-6 right-6 w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 bg-primary hover:bg-primary/90 z-50"
         size="icon"
       >
         <MessageCircle className="h-6 w-6" />
@@ -98,7 +98,7 @@ const FloatingChatbot = () => {
   }
 
   return (
-    <div className="fixed bottom-6 left-6 w-80 h-96 bg-white rounded-lg shadow-xl border z-50 flex flex-col animate-fade-in">
+    <div className="fixed bottom-6 right-6 w-80 h-96 bg-white rounded-lg shadow-xl border z-50 flex flex-col animate-fade-in">
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b bg-primary rounded-t-lg">
         <div className="flex items-center gap-2">
