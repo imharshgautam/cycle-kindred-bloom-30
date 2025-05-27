@@ -1,9 +1,9 @@
-
 import { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Menu, X, Heart, Calendar, Book, ShoppingBag, Video, User, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -77,6 +77,7 @@ const NavBar = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-3">
+            <ThemeToggle />
             <Button 
               variant="ghost" 
               size="sm" 
@@ -92,7 +93,8 @@ const NavBar = () => {
           </div>
 
           {/* Mobile menu button with 3D effect */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
             <Button 
               variant="ghost" 
               size="icon" 
