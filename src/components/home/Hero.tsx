@@ -1,36 +1,12 @@
 
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
   const circle1Ref = useRef<HTMLDivElement>(null);
   const circle2Ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.pageYOffset;
-      const parallax = scrolled * 0.5;
-      const parallaxSlow = scrolled * 0.2;
-      
-      if (imageRef.current) {
-        imageRef.current.style.transform = `translateY(${parallax}px) rotateX(5deg) rotateY(5deg)`;
-      }
-      
-      if (circle1Ref.current) {
-        circle1Ref.current.style.transform = `translate(${parallaxSlow}px, ${parallax}px) rotate(${scrolled * 0.1}deg)`;
-      }
-      
-      if (circle2Ref.current) {
-        circle2Ref.current.style.transform = `translate(-${parallaxSlow}px, -${parallax}px) rotate(-${scrolled * 0.1}deg)`;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <div className="relative overflow-hidden min-h-screen" ref={heroRef}>
@@ -66,10 +42,9 @@ const Hero = () => {
           <div className="w-full lg:w-1/2 relative perspective-1000">
             <div className="relative transform-gpu hover:scale-105 transition-transform duration-500">
               <img 
-                ref={imageRef}
                 src="/placeholder.svg" 
                 alt="Woman using period tracking app" 
-                className="w-full h-auto rounded-2xl shadow-2xl transform transition-all duration-500 hover:shadow-3xl"
+                className="w-full h-auto rounded-2xl shadow-2xl transition-all duration-500 hover:shadow-3xl"
                 style={{ transformStyle: 'preserve-3d' }}
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20 rounded-2xl pointer-events-none"></div>
@@ -90,3 +65,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
