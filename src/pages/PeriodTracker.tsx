@@ -117,7 +117,6 @@ const PeriodTracker = () => {
             <p className="text-muted-foreground mb-8 text-lg font-medium animate-fade-in animation-delay-200">
               Monitor your cycle, symptoms, and patterns over time.
             </p>
-            {/* Responsive grid: sidebar (lg:col-span-4) & main (lg:col-span-8) */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
               {/* Sidebar: 4 columns on lg+ screens */}
               <div className="lg:col-span-4 flex flex-col gap-6 h-full animate-fade-in">
@@ -165,12 +164,10 @@ const PeriodTracker = () => {
                     lastPeriodDate={new Date("2024-12-15")}
                   />
                 </div>
-                <div className="animate-fade-in animation-delay-300">
-                  <HistoryTable data={historicalData} />
-                </div>
+                {/* Moved HistoryTable below the log area */}
               </div>
               {/* Main Log Area: 8 columns on lg+ screens */}
-              <div className="lg:col-span-8">
+              <div className="lg:col-span-8 flex flex-col gap-8">
                 <Card className="border-2 card-3d hover:scale-[1.03] hover:shadow-3xl transition-all duration-300 bg-white/80 backdrop-blur-lg animate-fade-in animation-delay-200 min-h-[750px] flex flex-col justify-between">
                   <CardHeader>
                     <CardTitle>Log Today's Information</CardTitle>
@@ -295,6 +292,10 @@ const PeriodTracker = () => {
                     <Button onClick={handleSave}>Save Entry</Button>
                   </CardFooter>
                 </Card>
+                {/* Place HistoryTable horizontally below the log card, spanning full width */}
+                <div className="w-full animate-fade-in animation-delay-300">
+                  <HistoryTable data={historicalData} />
+                </div>
               </div>
             </div>
           </div>
