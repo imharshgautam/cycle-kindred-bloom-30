@@ -11,30 +11,13 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
-  // Use appropriate Unsplash images for different product categories
-  const getProductImage = (category: string) => {
-    switch (category) {
-      case 'pads':
-      case 'tampons':
-      case 'cups':
-      case 'underwear':
-        return "https://images.unsplash.com/photo-1582562124811-c09040d0a901?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80";
-      case 'wellness':
-        return "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80";
-      case 'bundles':
-        return "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80";
-      default:
-        return "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80";
-    }
-  };
-
   return (
-    <Card className="overflow-hidden border-2 hover:border-primary/20 card-hover group">
+    <Card className="overflow-hidden border-2 hover:border-primary/20 card-hover">
       <div className="relative">
         <img 
-          src={getProductImage(product.category)} 
+          src={product.image} 
           alt={product.name}
-          className="w-full h-48 object-cover transform transition-all duration-300 group-hover:scale-110"
+          className="w-full h-48 object-cover"
         />
         {product.isNew && (
           <Badge className="absolute top-3 left-3 bg-primary">New</Badge>

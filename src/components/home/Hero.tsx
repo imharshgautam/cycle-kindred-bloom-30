@@ -67,7 +67,7 @@ const Hero = () => {
             <div className="relative transform-gpu hover:scale-105 transition-transform duration-500">
               <img 
                 ref={imageRef}
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                src="/placeholder.svg" 
                 alt="Woman using period tracking app" 
                 className="w-full h-auto rounded-2xl shadow-2xl transform transition-all duration-500 hover:shadow-3xl"
                 style={{ transformStyle: 'preserve-3d' }}
