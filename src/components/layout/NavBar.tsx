@@ -4,7 +4,6 @@ import { Link as RouterLink } from "react-router-dom";
 import { Menu, X, Heart, Calendar, Book, ShoppingBag, Video, User, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -78,29 +77,22 @@ const NavBar = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-3">
-            <ThemeToggle />
             <Button 
               variant="ghost" 
               size="sm" 
               className="relative rounded-xl hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-transparent hover:border-border/30 hover:shadow-lg group"
-              asChild
             >
-              <RouterLink to="/login">
-                <span className="relative z-10">Sign In</span>
-                <div className="absolute inset-0 bg-gradient-to-br from-muted/20 to-muted/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </RouterLink>
+              <span className="relative z-10">Sign In</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-muted/20 to-muted/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </Button>
-            <Button className="relative rounded-xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl bg-gradient-to-br from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80 border-0 group overflow-hidden" asChild>
-              <RouterLink to="/signup">
-                <span className="relative z-10 font-medium">Get Started</span>
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-pink/20 to-brand-lavender/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </RouterLink>
+            <Button className="relative rounded-xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl bg-gradient-to-br from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80 border-0 group overflow-hidden">
+              <span className="relative z-10 font-medium">Get Started</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-pink/20 to-brand-lavender/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </Button>
           </div>
 
           {/* Mobile menu button with 3D effect */}
-          <div className="md:hidden flex items-center space-x-2">
-            <ThemeToggle />
+          <div className="md:hidden">
             <Button 
               variant="ghost" 
               size="icon" 
@@ -171,20 +163,15 @@ const NavBar = () => {
                 variant="outline" 
                 className="relative w-full justify-start rounded-xl hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm border-border/50 hover:border-border group shadow-sm hover:shadow-lg" 
                 size="sm"
-                asChild
               >
-                <RouterLink to="/login">
-                  <User className="h-4 w-4 mr-2 group-hover:text-primary transition-colors duration-300" />
-                  <span className="font-medium">Sign In</span>
-                  <div className="absolute inset-0 bg-gradient-to-br from-muted/20 to-muted/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
-                </RouterLink>
+                <User className="h-4 w-4 mr-2 group-hover:text-primary transition-colors duration-300" />
+                <span className="font-medium">Sign In</span>
+                <div className="absolute inset-0 bg-gradient-to-br from-muted/20 to-muted/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
               </Button>
               
-              <Button className="relative w-full justify-center rounded-xl hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl bg-gradient-to-br from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80 border-0 group overflow-hidden" asChild>
-                <RouterLink to="/signup">
-                  <span className="relative z-10 font-medium">Get Started</span>
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-pink/20 to-brand-lavender/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </RouterLink>
+              <Button className="relative w-full justify-center rounded-xl hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl bg-gradient-to-br from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80 border-0 group overflow-hidden">
+                <span className="relative z-10 font-medium">Get Started</span>
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-pink/20 to-brand-lavender/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Button>
             </div>
           </div>
