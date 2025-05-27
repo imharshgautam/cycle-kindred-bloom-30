@@ -14,6 +14,7 @@ import { format } from "date-fns";
 import { useToast } from "@/hooks/use-toast";
 import AIPrediction from "@/components/tracker/AIPrediction";
 import { CycleData } from "@/services/cyclePrediction";
+import HistoryTable from "@/components/tracker/HistoryTable";
 
 const symptomsOptions = [
   "Cramps", "Headache", "Backache", "Fatigue", 
@@ -116,10 +117,10 @@ const PeriodTracker = () => {
             <p className="text-muted-foreground mb-8 text-lg font-medium animate-fade-in animation-delay-200">
               Monitor your cycle, symptoms, and patterns over time.
             </p>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
 
-              <div className="lg:col-span-1 space-y-6">
-                <Card className="border-2 card-3d hover:scale-105 hover:shadow-3xl transition-transform duration-300 bg-white/80 backdrop-blur-sm animate-fade-in">
+              <div className="lg:col-span-1 flex flex-col gap-6 h-full animate-fade-in">
+                <Card className="border-2 card-3d hover:scale-105 hover:shadow-3xl transition-transform duration-300 bg-white/80 backdrop-blur-sm flex-1 min-h-[350px]">
                   <CardHeader>
                     <CardTitle>Cycle Overview</CardTitle>
                     <CardDescription>Your current cycle information</CardDescription>
@@ -157,16 +158,21 @@ const PeriodTracker = () => {
                     </div>
                   </CardContent>
                 </Card>
+                
                 <div className="animate-fade-in animation-delay-200">
                   <AIPrediction 
                     historicalData={historicalData}
                     lastPeriodDate={new Date("2024-12-15")}
                   />
                 </div>
+                
+                <div className="animate-fade-in animation-delay-300">
+                  <HistoryTable data={historicalData} />
+                </div>
               </div>
               
               <div className="lg:col-span-2">
-                <Card className="border-2 card-3d hover:scale-[1.03] hover:shadow-3xl transition-all duration-300 bg-white/80 backdrop-blur-lg animate-fade-in animation-delay-200">
+                <Card className="border-2 card-3d hover:scale-[1.03] hover:shadow-3xl transition-all duration-300 bg-white/80 backdrop-blur-lg animate-fade-in animation-delay-200 min-h-[680px] flex flex-col justify-between">
                   <CardHeader>
                     <CardTitle>Log Today's Information</CardTitle>
                     <CardDescription>Record how you're feeling and any symptoms</CardDescription>
