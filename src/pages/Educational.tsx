@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Search, BookOpen, FileText, BarChart } from "lucide-react";
+import { Search, BookOpen, FileText, BarChart, Sparkles, Brain } from "lucide-react";
 
 const articles = [
   {
@@ -102,110 +102,156 @@ const Educational = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <NavBar />
-      <main className="flex-grow py-12">
-        <div className="container mx-auto px-4">
+      <main className="flex-grow py-12 relative overflow-hidden">
+        {/* Enhanced 3D Background */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
+          {/* Complex gradient layers */}
+          <div className="absolute inset-0 bg-gradient-to-br from-violet-100/60 via-pink-50/50 to-cyan-100/40" />
+          <div className="absolute inset-0 bg-gradient-to-tl from-rose-100/40 via-transparent to-indigo-100/30" />
+          
+          {/* Floating 3D orbs */}
+          <div className="absolute -top-32 -right-32 w-96 h-96 bg-gradient-to-br from-purple-300/40 to-pink-400/30 rounded-full blur-3xl animate-float transform-gpu perspective-1000" style={{transform: 'rotateX(15deg) rotateY(25deg)'}} />
+          <div className="absolute top-1/3 -left-48 w-80 h-80 bg-gradient-to-br from-cyan-300/35 to-blue-400/25 rounded-full blur-2xl animate-float-delayed transform-gpu perspective-1000" style={{transform: 'rotateX(-10deg) rotateY(-20deg)'}} />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-br from-emerald-300/30 to-teal-400/20 rounded-full blur-2xl animate-float opacity-70 transform-gpu perspective-1000" style={{transform: 'rotateX(20deg) rotateZ(15deg)'}} />
+          
+          {/* Geometric shapes */}
+          <div className="absolute top-20 left-1/4 w-32 h-32 bg-gradient-to-br from-violet-400/20 to-purple-500/15 transform rotate-45 animate-tilt rounded-2xl blur-sm" />
+          <div className="absolute bottom-32 right-1/3 w-24 h-24 bg-gradient-to-br from-pink-400/25 to-rose-500/20 transform -rotate-12 animate-float-delayed rounded-full blur-sm" />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">Educational Hub</h1>
-            <p className="text-muted-foreground mb-8">
-              Evidence-based resources about menstrual and reproductive health.
-            </p>
+            {/* Enhanced Header */}
+            <div className="text-center mb-12 animate-fade-in">
+              <div className="relative inline-block">
+                <h1 className="text-4xl md:text-6xl font-black mb-4 bg-gradient-to-r from-violet-600 via-pink-500 to-cyan-500 bg-clip-text text-transparent drop-shadow-lg tracking-tight perspective-1000">
+                  Educational Hub
+                </h1>
+                <div className="absolute -top-2 -right-8 animate-pulse">
+                  <Sparkles className="h-8 w-8 text-pink-400 animate-spin" style={{animationDuration: '3s'}} />
+                </div>
+                <div className="absolute -bottom-2 -left-6 animate-pulse">
+                  <Brain className="h-6 w-6 text-violet-400 animate-bounce" style={{animationDelay: '1s'}} />
+                </div>
+              </div>
+              <p className="text-muted-foreground text-lg font-medium animate-fade-in animation-delay-200">
+                Evidence-based resources about menstrual and reproductive health.
+              </p>
+            </div>
             
-            <div className="mb-10 relative">
+            {/* Enhanced Search Bar */}
+            <div className="mb-12 relative animate-fade-in animation-delay-400">
               <div className="max-w-2xl mx-auto">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                  <Input 
-                    type="search" 
-                    placeholder="Search for topics, questions, or keywords..." 
-                    className="pl-10 py-6"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-violet-300/30 to-pink-300/30 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300 opacity-70" />
+                  <div className="relative">
+                    <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5 z-10" />
+                    <Input 
+                      type="search" 
+                      placeholder="Search for topics, questions, or keywords..." 
+                      className="pl-12 py-7 text-lg rounded-2xl border-2 border-white/50 bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 focus:scale-[1.02] transform-gpu"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
             
+            {/* Enhanced Tabs */}
             <Tabs defaultValue="articles" className="w-full">
-              <TabsList className="grid grid-cols-2 w-full max-w-md mx-auto mb-8">
-                <TabsTrigger value="articles" className="flex items-center gap-2 py-3">
-                  <BookOpen className="h-4 w-4" /> Articles & Resources
-                </TabsTrigger>
-                <TabsTrigger value="faq" className="flex items-center gap-2 py-3">
-                  <FileText className="h-4 w-4" /> FAQ
-                </TabsTrigger>
-              </TabsList>
+              <div className="flex justify-center mb-10 animate-fade-in animation-delay-200">
+                <TabsList className="bg-white/60 backdrop-blur-md border-2 border-white/30 shadow-2xl rounded-2xl p-2">
+                  <TabsTrigger 
+                    value="articles" 
+                    className="flex items-center gap-3 py-4 px-6 rounded-xl text-base font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-violet-500 data-[state=active]:to-pink-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105 transform-gpu"
+                  >
+                    <BookOpen className="h-5 w-5" /> 
+                    Articles & Resources
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="faq" 
+                    className="flex items-center gap-3 py-4 px-6 rounded-xl text-base font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-blue-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105 transform-gpu"
+                  >
+                    <FileText className="h-5 w-5" /> 
+                    FAQ
+                  </TabsTrigger>
+                </TabsList>
+              </div>
               
               {/* Articles Tab */}
               <TabsContent value="articles" className="animate-fade-in">
-                <div className="mb-8">
-                  <div className="flex flex-wrap gap-2">
-                    <Button 
-                      variant={activeCategory === "all" ? "default" : "outline"} 
-                      onClick={() => setActiveCategory("all")}
-                      size="sm"
-                    >
-                      All Topics
-                    </Button>
-                    <Button 
-                      variant={activeCategory === "basics" ? "default" : "outline"} 
-                      onClick={() => setActiveCategory("basics")}
-                      size="sm"
-                    >
-                      Cycle Basics
-                    </Button>
-                    <Button 
-                      variant={activeCategory === "health" ? "default" : "outline"} 
-                      onClick={() => setActiveCategory("health")}
-                      size="sm"
-                    >
-                      Health Conditions
-                    </Button>
-                    <Button 
-                      variant={activeCategory === "nutrition" ? "default" : "outline"} 
-                      onClick={() => setActiveCategory("nutrition")}
-                      size="sm"
-                    >
-                      Nutrition
-                    </Button>
-                    <Button 
-                      variant={activeCategory === "fitness" ? "default" : "outline"} 
-                      onClick={() => setActiveCategory("fitness")}
-                      size="sm"
-                    >
-                      Fitness
-                    </Button>
+                <div className="mb-10">
+                  <div className="flex flex-wrap gap-3 justify-center">
+                    {[
+                      { key: "all", label: "All Topics", gradient: "from-gray-400 to-gray-600" },
+                      { key: "basics", label: "Cycle Basics", gradient: "from-violet-400 to-purple-600" },
+                      { key: "health", label: "Health Conditions", gradient: "from-pink-400 to-rose-600" },
+                      { key: "nutrition", label: "Nutrition", gradient: "from-emerald-400 to-teal-600" },
+                      { key: "fitness", label: "Fitness", gradient: "from-cyan-400 to-blue-600" }
+                    ].map((category) => (
+                      <Button 
+                        key={category.key}
+                        variant={activeCategory === category.key ? "default" : "outline"} 
+                        onClick={() => setActiveCategory(category.key)}
+                        className={`px-6 py-3 rounded-xl border-2 transition-all duration-300 hover:scale-105 transform-gpu shadow-lg ${
+                          activeCategory === category.key 
+                            ? `bg-gradient-to-r ${category.gradient} text-white border-transparent shadow-2xl` 
+                            : "bg-white/70 backdrop-blur-sm border-white/50 hover:bg-white/90 hover:shadow-xl"
+                        }`}
+                      >
+                        {category.label}
+                      </Button>
+                    ))}
                   </div>
                 </div>
                 
                 {filteredArticles.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {filteredArticles.map((article) => (
-                      <Card key={article.id} className="overflow-hidden h-full border-2 hover:border-primary/20 card-hover">
-                        <div className="h-48 overflow-hidden">
-                          <img 
-                            src={article.image} 
-                            alt={article.title}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <CardContent className="p-5">
-                          <div className="mb-4">
-                            <span className="inline-block px-3 py-1 text-xs rounded-full bg-muted text-muted-foreground capitalize">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {filteredArticles.map((article, index) => (
+                      <Card 
+                        key={article.id} 
+                        className="overflow-hidden border-0 bg-white/80 backdrop-blur-sm shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 transform-gpu card-3d group animate-fade-in"
+                        style={{animationDelay: `${index * 100}ms`}}
+                      >
+                        <div className="relative">
+                          <div className="h-52 overflow-hidden relative">
+                            <div className="absolute inset-0 bg-gradient-to-br from-violet-400/20 to-pink-400/20 z-10" />
+                            <img 
+                              src={article.image} 
+                              alt={article.title}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 transform-gpu"
+                            />
+                          </div>
+                          <div className="absolute top-4 right-4 z-20">
+                            <span className={`inline-block px-4 py-2 text-xs font-bold rounded-full backdrop-blur-sm border ${
+                              article.category === 'basics' ? 'bg-violet-500/80 text-white border-violet-300' :
+                              article.category === 'health' ? 'bg-pink-500/80 text-white border-pink-300' :
+                              article.category === 'nutrition' ? 'bg-emerald-500/80 text-white border-emerald-300' :
+                              'bg-cyan-500/80 text-white border-cyan-300'
+                            }`}>
                               {article.category}
                             </span>
                           </div>
-                          <h3 className="text-lg font-medium mb-2">{article.title}</h3>
-                          <p className="text-sm text-muted-foreground">{article.excerpt}</p>
-                          <Button variant="link" className="px-0 py-0 h-auto mt-3">Read more</Button>
+                        </div>
+                        <CardContent className="p-6">
+                          <h3 className="text-xl font-bold mb-3 group-hover:text-violet-600 transition-colors duration-300">{article.title}</h3>
+                          <p className="text-muted-foreground leading-relaxed">{article.excerpt}</p>
+                          <Button variant="link" className="px-0 py-0 h-auto mt-4 text-violet-600 hover:text-pink-600 font-semibold transition-colors duration-300">
+                            Read more →
+                          </Button>
                         </CardContent>
                       </Card>
                     ))}
                   </div>
                 ) : (
-                  <div className="text-center py-12">
-                    <BarChart className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                    <h3 className="text-lg font-medium mb-2">No matching articles</h3>
-                    <p className="text-muted-foreground">
+                  <div className="text-center py-16 animate-fade-in">
+                    <div className="relative inline-block">
+                      <BarChart className="h-16 w-16 text-muted-foreground mx-auto mb-6 animate-pulse" />
+                      <div className="absolute -top-2 -right-2 w-4 h-4 bg-pink-400 rounded-full animate-ping" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3">No matching articles</h3>
+                    <p className="text-muted-foreground text-lg">
                       Try adjusting your search terms or category filters.
                     </p>
                   </div>
@@ -214,24 +260,34 @@ const Educational = () => {
               
               {/* FAQ Tab */}
               <TabsContent value="faq" className="animate-fade-in">
-                <div className="max-w-3xl mx-auto">
-                  <Accordion type="single" collapsible className="w-full">
+                <div className="max-w-4xl mx-auto">
+                  <Accordion type="single" collapsible className="w-full space-y-4">
                     {filteredFaqs.length > 0 ? (
                       filteredFaqs.map((faq, index) => (
-                        <AccordionItem key={index} value={`item-${index}`}>
-                          <AccordionTrigger className="text-left">
+                        <AccordionItem 
+                          key={index} 
+                          value={`item-${index}`}
+                          className="border-0 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] transform-gpu animate-fade-in"
+                          style={{animationDelay: `${index * 100}ms`}}
+                        >
+                          <AccordionTrigger className="text-left px-6 py-6 hover:no-underline text-lg font-semibold hover:text-violet-600 transition-colors duration-300 rounded-2xl">
                             {faq.question}
                           </AccordionTrigger>
-                          <AccordionContent>
-                            <p className="text-muted-foreground">{faq.answer}</p>
+                          <AccordionContent className="px-6 pb-6">
+                            <div className="pt-2 border-t border-violet-100">
+                              <p className="text-muted-foreground leading-relaxed text-base">{faq.answer}</p>
+                            </div>
                           </AccordionContent>
                         </AccordionItem>
                       ))
                     ) : (
-                      <div className="text-center py-12">
-                        <FileText className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                        <h3 className="text-lg font-medium mb-2">No matching FAQs</h3>
-                        <p className="text-muted-foreground">
+                      <div className="text-center py-16 animate-fade-in">
+                        <div className="relative inline-block">
+                          <FileText className="h-16 w-16 text-muted-foreground mx-auto mb-6 animate-pulse" />
+                          <div className="absolute -top-2 -right-2 w-4 h-4 bg-cyan-400 rounded-full animate-ping" />
+                        </div>
+                        <h3 className="text-2xl font-bold mb-3">No matching FAQs</h3>
+                        <p className="text-muted-foreground text-lg">
                           Try adjusting your search query to find relevant questions.
                         </p>
                       </div>

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
@@ -9,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { format } from "date-fns";
-import { Clock, CheckCircle, Video, Calendar as CalendarIcon } from "lucide-react";
+import { Clock, CheckCircle, Video, Calendar as CalendarIcon, Stethoscope, Brain, Heart, Sparkles } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const therapists = [
@@ -119,59 +118,125 @@ const Consultation = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <NavBar />
-      <main className="flex-grow py-12">
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">Book a Consultation</h1>
-          <p className="text-muted-foreground mb-8">Talk to licensed professionals about your menstrual and reproductive health.</p>
+      <main className="flex-grow py-12 relative overflow-hidden">
+        {/* Enhanced 3D Background */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
+          {/* Complex gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-100/40 via-purple-50/30 to-pink-100/40" />
+          <div className="absolute inset-0 bg-gradient-to-tl from-cyan-100/30 via-transparent to-violet-100/25" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-50/15 to-transparent" />
           
+          {/* Medical-themed floating elements */}
+          <div className="absolute -top-32 right-1/4 w-80 h-80 bg-gradient-to-br from-blue-300/25 to-cyan-400/15 rounded-full blur-3xl animate-float transform-gpu" style={{transform: 'rotateX(25deg) rotateY(-20deg) translateZ(60px)'}} />
+          <div className="absolute top-1/3 -left-48 w-96 h-96 bg-gradient-to-br from-purple-300/20 to-pink-400/15 rounded-full blur-2xl animate-float-delayed transform-gpu" style={{transform: 'rotateX(-20deg) rotateY(30deg) translateZ(40px)'}} />
+          <div className="absolute bottom-1/4 right-1/3 w-72 h-72 bg-gradient-to-br from-violet-300/25 to-indigo-400/20 rounded-full blur-2xl animate-float opacity-60 transform-gpu" style={{transform: 'rotateX(15deg) rotateZ(-25deg) translateZ(50px)'}} />
+          
+          {/* Decorative medical icons */}
+          <div className="absolute top-20 left-1/4 w-24 h-24 bg-gradient-to-br from-blue-400/20 to-cyan-500/15 transform rotate-12 animate-tilt rounded-2xl flex items-center justify-center">
+            <Stethoscope className="h-8 w-8 text-blue-300" />
+          </div>
+          <div className="absolute bottom-32 right-1/4 w-20 h-20 bg-gradient-to-br from-purple-400/25 to-pink-500/20 transform -rotate-45 animate-float-delayed rounded-full flex items-center justify-center">
+            <Heart className="h-6 w-6 text-purple-300" />
+          </div>
+          <div className="absolute top-1/2 left-1/5 w-16 h-16 bg-gradient-to-br from-cyan-400/30 to-blue-500/25 transform rotate-45 animate-float rounded-lg flex items-center justify-center">
+            <Brain className="h-5 w-5 text-cyan-300" />
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          {/* Enhanced Header */}
+          <div className="text-center mb-12 animate-fade-in">
+            <div className="relative inline-block">
+              <h1 className="text-4xl md:text-6xl font-black mb-4 bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 bg-clip-text text-transparent drop-shadow-xl tracking-tight">
+                Book a Consultation
+              </h1>
+              <div className="absolute -top-6 -right-12 animate-pulse">
+                <Sparkles className="h-12 w-12 text-blue-400 animate-spin" style={{animationDuration: '4s'}} />
+              </div>
+              <div className="absolute -bottom-4 -left-10 animate-bounce" style={{animationDelay: '1s'}}>
+                <Stethoscope className="h-10 w-10 text-purple-400" />
+              </div>
+            </div>
+            <p className="text-muted-foreground text-lg font-medium animate-fade-in animation-delay-200">
+              Talk to licensed professionals about your menstrual and reproductive health.
+            </p>
+          </div>
+          
+          {/* Enhanced Tabs */}
           <Tabs defaultValue="therapist" value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid grid-cols-2 w-full max-w-md mx-auto mb-8">
-              <TabsTrigger value="therapist" className="flex items-center gap-2 py-3">
-                Therapists
-              </TabsTrigger>
-              <TabsTrigger value="gynecologist" className="flex items-center gap-2 py-3">
-                Gynecologists
-              </TabsTrigger>
-            </TabsList>
+            <div className="flex justify-center mb-10 animate-fade-in animation-delay-300">
+              <TabsList className="bg-white/60 backdrop-blur-md border-2 border-white/30 shadow-2xl rounded-2xl p-2">
+                <TabsTrigger 
+                  value="therapist" 
+                  className="flex items-center gap-3 py-4 px-8 rounded-xl text-base font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105 transform-gpu"
+                >
+                  <Brain className="h-5 w-5" />
+                  Therapists
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="gynecologist" 
+                  className="flex items-center gap-3 py-4 px-8 rounded-xl text-base font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-cyan-500 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105 transform-gpu"
+                >
+                  <Stethoscope className="h-5 w-5" />
+                  Gynecologists
+                </TabsTrigger>
+              </TabsList>
+            </div>
             
             <TabsContent value={activeTab} className="animate-fade-in">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
                 <div className="lg:col-span-2">
-                  <h2 className="text-xl font-medium mb-4">Available {activeTab === "therapist" ? "Therapists" : "Gynecologists"}</h2>
+                  <h2 className="text-2xl font-bold mb-6 animate-fade-in animation-delay-200">
+                    Available {activeTab === "therapist" ? "Therapists" : "Gynecologists"}
+                  </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {filteredPractitioners.map((practitioner) => (
+                    {filteredPractitioners.map((practitioner, index) => (
                       <Card 
                         key={practitioner.id} 
-                        className={`border-2 cursor-pointer ${
+                        className={`border-0 cursor-pointer transition-all duration-500 hover:scale-105 transform-gpu card-3d group animate-fade-in ${
                           selectedPractitioner === practitioner.id 
-                            ? "border-primary" 
-                            : "hover:border-primary/20"
+                            ? "bg-gradient-to-br from-violet-100/80 to-pink-100/80 backdrop-blur-sm shadow-2xl scale-105" 
+                            : "bg-white/80 backdrop-blur-sm shadow-xl hover:shadow-2xl"
                         } ${!practitioner.available ? "opacity-60" : ""}`}
                         onClick={() => {
                           if (practitioner.available) {
                             setSelectedPractitioner(practitioner.id);
                           }
                         }}
+                        style={{animationDelay: `${index * 150}ms`}}
                       >
-                        <CardContent className="p-5 flex">
-                          <Avatar className="h-16 w-16 border-2 border-muted">
-                            <AvatarImage src={practitioner.image} alt={practitioner.name} />
-                            <AvatarFallback>{practitioner.initials}</AvatarFallback>
-                          </Avatar>
-                          <div className="ml-4">
-                            <h3 className="font-medium">{practitioner.name}</h3>
-                            <p className="text-sm text-muted-foreground">{practitioner.credentials}</p>
-                            <div className="mt-2 flex flex-wrap gap-1">
+                        <CardContent className="p-6 flex">
+                          <div className="relative">
+                            <Avatar className="h-20 w-20 border-4 border-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                              <AvatarImage src={practitioner.image} alt={practitioner.name} />
+                              <AvatarFallback className="bg-gradient-to-br from-violet-400 to-pink-400 text-white font-bold text-lg">
+                                {practitioner.initials}
+                              </AvatarFallback>
+                            </Avatar>
+                            {practitioner.available && (
+                              <div className="absolute -top-1 -right-1 w-6 h-6 bg-emerald-400 rounded-full border-2 border-white animate-pulse" />
+                            )}
+                          </div>
+                          <div className="ml-5 flex-1">
+                            <h3 className="font-bold text-lg mb-1 group-hover:text-violet-600 transition-colors duration-300">
+                              {practitioner.name}
+                            </h3>
+                            <p className="text-sm text-muted-foreground mb-3">{practitioner.credentials}</p>
+                            <div className="mb-4 flex flex-wrap gap-2">
                               {practitioner.specialties.map((specialty, idx) => (
-                                <Badge key={idx} variant="outline" className="text-xs font-normal">
+                                <Badge 
+                                  key={idx} 
+                                  variant="outline" 
+                                  className="text-xs font-medium bg-white/70 border-violet-200 hover:bg-violet-50 transition-colors duration-300"
+                                >
                                   {specialty}
                                 </Badge>
                               ))}
                             </div>
-                            <div className="mt-3 flex items-center justify-between">
-                              <p className="font-medium">${practitioner.price}/session</p>
+                            <div className="flex items-center justify-between">
+                              <p className="font-bold text-lg text-violet-600">${practitioner.price}/session</p>
                               {!practitioner.available && (
-                                <Badge variant="outline" className="text-xs font-normal bg-muted">
+                                <Badge variant="outline" className="text-xs font-medium bg-red-50 border-red-200 text-red-600">
                                   Fully Booked
                                 </Badge>
                               )}
@@ -183,30 +248,45 @@ const Consultation = () => {
                   </div>
                 </div>
                 
-                <div>
-                  <Card className="border-2">
-                    <CardContent className="p-5">
-                      <h2 className="text-xl font-medium mb-4">Schedule Appointment</h2>
+                {/* Enhanced Booking Panel */}
+                <div className="animate-fade-in animation-delay-400">
+                  <Card className="border-0 bg-white/80 backdrop-blur-md shadow-2xl card-3d sticky top-8">
+                    <CardContent className="p-8">
+                      <h2 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-violet-600 to-pink-600 bg-clip-text text-transparent">
+                        Schedule Appointment
+                      </h2>
                       
-                      <div className="mb-6">
-                        <h3 className="text-sm font-medium mb-2">Select Date</h3>
-                        <Calendar
-                          mode="single"
-                          selected={selectedDate}
-                          onSelect={setSelectedDate}
-                          className="rounded-md border pointer-events-auto"
-                          disabled={(date) => date < new Date()}
-                        />
+                      <div className="mb-8">
+                        <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                          <CalendarIcon className="h-5 w-5 text-violet-500" />
+                          Select Date
+                        </h3>
+                        <div className="bg-gradient-to-br from-violet-50/50 to-pink-50/50 rounded-2xl p-4 border border-violet-100">
+                          <Calendar
+                            mode="single"
+                            selected={selectedDate}
+                            onSelect={setSelectedDate}
+                            className="rounded-xl pointer-events-auto"
+                            disabled={(date) => date < new Date()}
+                          />
+                        </div>
                       </div>
                       
-                      <div className="mb-6">
-                        <h3 className="text-sm font-medium mb-2">Available Time Slots</h3>
-                        <div className="grid grid-cols-2 gap-2">
+                      <div className="mb-8">
+                        <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                          <Clock className="h-5 w-5 text-blue-500" />
+                          Available Time Slots
+                        </h3>
+                        <div className="grid grid-cols-2 gap-3">
                           {timeSlots.map((time) => (
                             <Button
                               key={time}
                               variant={selectedTimeSlot === time ? "default" : "outline"}
-                              className="text-sm"
+                              className={`py-3 font-medium transition-all duration-300 hover:scale-105 transform-gpu ${
+                                selectedTimeSlot === time 
+                                  ? "bg-gradient-to-r from-violet-500 to-pink-500 text-white shadow-lg" 
+                                  : "bg-white/70 border-violet-200 hover:bg-violet-50 hover:border-violet-300"
+                              }`}
                               onClick={() => setSelectedTimeSlot(time)}
                             >
                               {time}
@@ -216,23 +296,23 @@ const Consultation = () => {
                       </div>
                       
                       {selectedPractitioner !== null && selectedDate && selectedTimeSlot && (
-                        <div className="bg-muted/50 p-3 rounded-md mb-6">
-                          <h3 className="text-sm font-medium mb-2">Appointment Summary</h3>
-                          <div className="text-sm text-muted-foreground space-y-1">
-                            <div className="flex items-center gap-2">
-                              <Video className="h-4 w-4" />
+                        <div className="bg-gradient-to-br from-violet-50/80 to-pink-50/80 p-6 rounded-2xl mb-8 border border-violet-100 animate-fade-in">
+                          <h3 className="text-lg font-semibold mb-4 text-violet-700">Appointment Summary</h3>
+                          <div className="space-y-3">
+                            <div className="flex items-center gap-3 text-muted-foreground">
+                              <Video className="h-5 w-5 text-blue-500" />
                               <span>Video consultation with {therapists.find(p => p.id === selectedPractitioner)?.name}</span>
                             </div>
-                            <div className="flex items-center gap-2">
-                              <CalendarIcon className="h-4 w-4" />
+                            <div className="flex items-center gap-3 text-muted-foreground">
+                              <CalendarIcon className="h-5 w-5 text-violet-500" />
                               <span>{selectedDate ? format(selectedDate, "MMMM d, yyyy") : ""}</span>
                             </div>
-                            <div className="flex items-center gap-2">
-                              <Clock className="h-4 w-4" />
+                            <div className="flex items-center gap-3 text-muted-foreground">
+                              <Clock className="h-5 w-5 text-pink-500" />
                               <span>{selectedTimeSlot}</span>
                             </div>
-                            <div className="flex items-center gap-2">
-                              <CheckCircle className="h-4 w-4" />
+                            <div className="flex items-center gap-3 text-muted-foreground">
+                              <CheckCircle className="h-5 w-5 text-emerald-500" />
                               <span>45-minute session</span>
                             </div>
                           </div>
@@ -240,7 +320,7 @@ const Consultation = () => {
                       )}
                       
                       <Button 
-                        className="w-full" 
+                        className="w-full py-4 text-lg font-semibold bg-gradient-to-r from-violet-500 to-pink-500 hover:from-violet-600 hover:to-pink-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform-gpu rounded-xl" 
                         disabled={!selectedDate || !selectedTimeSlot || selectedPractitioner === null}
                         onClick={handleBookAppointment}
                       >
