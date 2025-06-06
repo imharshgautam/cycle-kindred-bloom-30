@@ -8,15 +8,16 @@ const Hero = () => {
 
   return (
     <div className="relative overflow-hidden min-h-screen transform-gpu" ref={heroRef}>
-      <div className="gradient-background absolute inset-0 z-0"></div>
+      {/* Darker gradient background for light mode */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-muted/60 via-muted/40 to-muted/50"></div>
       
       {/* Optimized floating 3D elements with better performance */}
       <div className="absolute inset-0 z-5">
-        <div className="absolute top-20 left-10 w-16 h-16 bg-brand-pink rounded-full opacity-50 animate-float transform-gpu"></div>
-        <div className="absolute top-40 right-20 w-12 h-12 bg-brand-lavender rounded-full opacity-50 animate-float-delayed transform-gpu"></div>
-        <div className="absolute bottom-40 left-20 w-20 h-20 bg-brand-teal rounded-full opacity-50 animate-float transform-gpu"></div>
-        <div className="absolute top-60 left-1/3 w-8 h-8 bg-brand-peach rounded-full opacity-50 animate-float-delayed transform-gpu"></div>
-        <div className="absolute bottom-60 right-1/3 w-14 h-14 bg-brand-mint rounded-full opacity-50 animate-float transform-gpu"></div>
+        <div className="absolute top-20 left-10 w-16 h-16 bg-brand-pink/60 rounded-full animate-float transform-gpu"></div>
+        <div className="absolute top-40 right-20 w-12 h-12 bg-brand-lavender/60 rounded-full animate-float-delayed transform-gpu"></div>
+        <div className="absolute bottom-40 left-20 w-20 h-20 bg-brand-teal/60 rounded-full animate-float transform-gpu"></div>
+        <div className="absolute top-60 left-1/3 w-8 h-8 bg-brand-peach/60 rounded-full animate-float-delayed transform-gpu"></div>
+        <div className="absolute bottom-60 right-1/3 w-14 h-14 bg-brand-mint/60 rounded-full animate-float transform-gpu"></div>
       </div>
       
       <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
@@ -46,8 +47,8 @@ const Hero = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20 rounded-2xl pointer-events-none"></div>
             </div>
-            <div className="absolute -bottom-4 -right-4 w-48 h-48 bg-brand-lavender rounded-full -z-10 opacity-40 blur-xl transform-gpu"></div>
-            <div className="absolute -top-4 -left-4 w-32 h-32 bg-brand-pink rounded-full -z-10 opacity-40 blur-xl transform-gpu"></div>
+            <div className="absolute -bottom-4 -right-4 w-48 h-48 bg-brand-lavender/50 rounded-full -z-10 blur-xl transform-gpu"></div>
+            <div className="absolute -top-4 -left-4 w-32 h-32 bg-brand-pink/50 rounded-full -z-10 blur-xl transform-gpu"></div>
           </div>
         </div>
       </div>
