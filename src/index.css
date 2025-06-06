@@ -36,36 +36,56 @@
     --ring: 320 70% 75%;
 
     --radius: 1rem;
+
+    /* Sidebar variables for light mode */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 300 10% 10%;
+    --sidebar-primary: 320 70% 75%;
+    --sidebar-primary-foreground: 300 10% 10%;
+    --sidebar-accent: 300 10% 96%;
+    --sidebar-accent-foreground: 300 10% 10%;
+    --sidebar-border: 300 10% 90%;
+    --sidebar-ring: 320 70% 75%;
   }
 
   .dark {
-    --background: 300 10% 10%;
-    --foreground: 300 10% 98%;
+    --background: 220 13% 9%;
+    --foreground: 300 20% 98%;
 
-    --card: 300 10% 12%;
-    --card-foreground: 300 10% 98%;
+    --card: 220 13% 11%;
+    --card-foreground: 300 20% 98%;
 
-    --popover: 300 10% 12%;
-    --popover-foreground: 300 10% 98%;
+    --popover: 220 13% 11%;
+    --popover-foreground: 300 20% 98%;
 
-    --primary: 320 70% 60%;
-    --primary-foreground: 300 10% 98%;
+    --primary: 320 70% 70%;
+    --primary-foreground: 220 13% 9%;
 
-    --secondary: 260 40% 40%;
-    --secondary-foreground: 300 10% 98%;
+    --secondary: 260 30% 25%;
+    --secondary-foreground: 300 20% 98%;
 
-    --muted: 300 10% 20%;
-    --muted-foreground: 300 10% 60%;
+    --muted: 220 13% 15%;
+    --muted-foreground: 300 10% 65%;
 
-    --accent: 180 40% 40%;
-    --accent-foreground: 300 10% 98%;
+    --accent: 180 30% 25%;
+    --accent-foreground: 300 20% 98%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 300 10% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 300 20% 98%;
 
-    --border: 300 10% 25%;
-    --input: 300 10% 25%;
-    --ring: 320 70% 50%;
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 320 70% 60%;
+
+    /* Enhanced sidebar variables for dark mode */
+    --sidebar-background: 220 13% 8%;
+    --sidebar-foreground: 300 20% 98%;
+    --sidebar-primary: 320 70% 70%;
+    --sidebar-primary-foreground: 220 13% 8%;
+    --sidebar-accent: 220 13% 15%;
+    --sidebar-accent-foreground: 300 20% 98%;
+    --sidebar-border: 220 13% 18%;
+    --sidebar-ring: 320 70% 60%;
   }
 }
 
@@ -77,10 +97,19 @@
   body {
     @apply bg-background text-foreground font-sans;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
+    transition: color 0.3s ease;
+  }
+
+  /* Enhanced dark mode transitions */
+  .dark body {
+    background-image: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 40% 40%, rgba(120, 219, 226, 0.05) 0%, transparent 50%);
   }
 }
 
@@ -105,10 +134,23 @@
   .animation-delay-400 {
     animation-delay: 400ms;
   }
+
+  /* Dark mode specific utilities */
+  .dark-mode-shadow {
+    @apply dark:shadow-xl dark:shadow-black/20;
+  }
+
+  .dark-mode-border {
+    @apply dark:border-border/50;
+  }
 }
 
 .gradient-background {
   background: linear-gradient(135deg, rgba(229,222,255,0.4) 0%, rgba(255,222,226,0.4) 50%, rgba(211,228,253,0.4) 100%);
+}
+
+.dark .gradient-background {
+  background: linear-gradient(135deg, rgba(120,119,198,0.2) 0%, rgba(255,119,198,0.2) 50%, rgba(120,219,226,0.2) 100%);
 }
 
 .card-hover {
@@ -120,7 +162,11 @@
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
-/* 3D and Parallax Animations */
+.dark .card-hover:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+/* Enhanced 3D and Parallax Animations with dark mode support */
 @keyframes float {
   0%, 100% {
     transform: translateY(0px) translateX(0px) rotate(0deg);
@@ -175,6 +221,15 @@
   }
 }
 
+@keyframes glow-dark {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(120,119,198,0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255,119,198,0.5);
+  }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
@@ -191,14 +246,22 @@
   animation: glow 4s ease-in-out infinite;
 }
 
-/* 3D Card Effects */
+.dark .animate-glow {
+  animation: glow-dark 4s ease-in-out infinite;
+}
+
+/* Enhanced 3D Card Effects with dark mode */
 .card-3d {
   transform-style: preserve-3d;
-  transition: transform 0.6s ease;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
 
 .card-3d:hover {
   transform: rotateY(15deg) rotateX(5deg) scale(1.05);
+}
+
+.dark .card-3d:hover {
+  box-shadow: 0 35px 80px -12px rgba(0, 0, 0, 0.6);
 }
 
 /* Parallax Scroll Effects */
@@ -206,12 +269,65 @@
   will-change: transform;
 }
 
-/* Enhanced shadow effects */
+/* Enhanced shadow effects for dark mode */
 .shadow-3xl {
   box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+.dark .shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode specific enhancements */
+.dark {
+  color-scheme: dark;
+}
+
+.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent-foreground));
+}
+
+/* Improved form inputs for dark mode */
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="password"],
+.dark textarea,
+.dark select {
+  background-color: hsl(var(--input));
+  border-color: hsl(var(--border));
+  color: hsl(var(--foreground));
+}
+
+.dark input[type="text"]:focus,
+.dark input[type="email"]:focus,
+.dark input[type="password"]:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
 }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Enhanced focus states for dark mode */
+.dark *:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
 }
