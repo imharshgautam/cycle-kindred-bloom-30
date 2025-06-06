@@ -56,30 +56,30 @@ const phaseData = [
 const CyclePhases = () => {
   return (
     <section className="py-16 relative overflow-hidden">
-      <div className="absolute top-1/4 left-0 w-64 h-64 bg-brand-lavender rounded-full -z-10 opacity-40 blur-3xl animate-float"></div>
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-brand-pink rounded-full -z-10 opacity-40 blur-3xl animate-float-delayed"></div>
+      <div className="absolute top-1/4 left-0 w-64 h-64 bg-brand-lavender rounded-full -z-10 opacity-20 blur-3xl animate-float transform-gpu"></div>
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-brand-pink rounded-full -z-10 opacity-20 blur-3xl animate-float-delayed transform-gpu"></div>
       
-      {/* Additional floating elements */}
-      <div className="absolute top-20 right-1/4 w-24 h-24 bg-brand-teal rounded-full opacity-30 blur-xl animate-float"></div>
-      <div className="absolute bottom-32 left-1/4 w-32 h-32 bg-brand-peach rounded-full opacity-30 blur-xl animate-float-delayed"></div>
+      {/* Additional optimized floating elements */}
+      <div className="absolute top-20 right-1/4 w-24 h-24 bg-brand-teal rounded-full opacity-15 blur-xl animate-float transform-gpu"></div>
+      <div className="absolute bottom-32 left-1/4 w-32 h-32 bg-brand-peach rounded-full opacity-15 blur-xl animate-float-delayed transform-gpu"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 transform hover:scale-105 transition-transform duration-300 animate-tilt">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 transform hover:scale-105 transition-transform duration-200 animate-tilt transform-gpu">
             Understanding Your Cycle Phases
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto transform hover:scale-105 transition-transform duration-300">
+          <p className="text-muted-foreground max-w-2xl mx-auto transform hover:scale-105 transition-transform duration-200 transform-gpu">
             Each phase of your menstrual cycle brings unique changes and needs. Learn about your body's rhythm and how to support yourself through each phase.
           </p>
         </div>
 
         <Tabs defaultValue="menstrual" className="w-full max-w-4xl mx-auto">
-          <TabsList className="grid grid-cols-2 md:grid-cols-4 mb-8 transform perspective-1000">
+          <TabsList className="grid grid-cols-2 md:grid-cols-4 mb-8 perspective-1000">
             {phaseData.map((phase) => (
               <TabsTrigger 
                 key={phase.id} 
                 value={phase.id}
-                className="data-[state=active]:bg-primary/10 text-sm md:text-base transform transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-lg"
+                className="data-[state=active]:bg-primary/10 text-sm md:text-base transform transition-all duration-200 hover:scale-105 hover:-translate-y-1 transform-gpu"
               >
                 {phase.name}
               </TabsTrigger>
@@ -88,44 +88,44 @@ const CyclePhases = () => {
           
           {phaseData.map((phase) => (
             <TabsContent key={phase.id} value={phase.id} className="animate-fade-in">
-              <Card className="border-2 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl perspective-1000 card-3d">
+              <Card className="border-2 transform transition-all duration-300 hover:scale-[1.01] hover:shadow-xl perspective-1000 card-3d transform-gpu">
                 <CardContent className="p-6 md:p-8 relative overflow-hidden">
-                  {/* Dynamic gradient overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${phase.gradient} opacity-50 rounded-lg`}></div>
+                  {/* Optimized gradient overlay */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${phase.gradient} opacity-30 rounded-lg`}></div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
-                    <div className="transform transition-all duration-300 hover:scale-105">
-                      <h3 className="text-2xl font-bold mb-2 text-primary transform transition-all duration-300 hover:scale-110">
+                    <div className="transform transition-all duration-200 hover:scale-105 transform-gpu">
+                      <h3 className="text-2xl font-bold mb-2 text-primary transform transition-all duration-200 hover:scale-110 transform-gpu">
                         {phase.name}
                       </h3>
-                      <p className="font-medium text-sm mb-4 transform transition-all duration-300 hover:scale-105">
+                      <p className="font-medium text-sm mb-4 transform transition-all duration-200 hover:scale-105 transform-gpu">
                         Typical duration: {phase.duration}
                       </p>
-                      <p className="text-muted-foreground mb-6 transform transition-all duration-300 hover:scale-105">
+                      <p className="text-muted-foreground mb-6 transform transition-all duration-200 hover:scale-105 transform-gpu">
                         {phase.description}
                       </p>
                     </div>
                     
                     <div className="space-y-4">
-                      <div className="transform transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-3 rounded-lg hover:bg-white/50">
+                      <div className="transform transition-all duration-200 hover:scale-105 hover:-translate-y-1 p-3 rounded-lg hover:bg-card/80 transform-gpu">
                         <h4 className="font-medium mb-2 flex items-center gap-2">
-                          <span className="h-3 w-3 rounded-full bg-brand-pink animate-pulse"></span>
+                          <span className="h-3 w-3 rounded-full bg-brand-pink animate-pulse transform-gpu"></span>
                           Nutrition Recommendations
                         </h4>
                         <p className="text-sm text-muted-foreground">{phase.recommendations.diet}</p>
                       </div>
                       
-                      <div className="transform transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-3 rounded-lg hover:bg-white/50">
+                      <div className="transform transition-all duration-200 hover:scale-105 hover:-translate-y-1 p-3 rounded-lg hover:bg-card/80 transform-gpu">
                         <h4 className="font-medium mb-2 flex items-center gap-2">
-                          <span className="h-3 w-3 rounded-full bg-brand-lavender animate-pulse"></span>
+                          <span className="h-3 w-3 rounded-full bg-brand-lavender animate-pulse transform-gpu"></span>
                           Suggested Activities
                         </h4>
                         <p className="text-sm text-muted-foreground">{phase.recommendations.activities}</p>
                       </div>
                       
-                      <div className="transform transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-3 rounded-lg hover:bg-white/50">
+                      <div className="transform transition-all duration-200 hover:scale-105 hover:-translate-y-1 p-3 rounded-lg hover:bg-card/80 transform-gpu">
                         <h4 className="font-medium mb-2 flex items-center gap-2">
-                          <span className="h-3 w-3 rounded-full bg-brand-teal animate-pulse"></span>
+                          <span className="h-3 w-3 rounded-full bg-brand-teal animate-pulse transform-gpu"></span>
                           Self-Care Focus
                         </h4>
                         <p className="text-sm text-muted-foreground">{phase.recommendations.selfCare}</p>

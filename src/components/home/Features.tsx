@@ -51,15 +51,15 @@ const featureItems = [
 const Features = () => {
   return (
     <section className="py-16 relative overflow-hidden">
-      {/* Parallax background elements */}
+      {/* Optimized parallax background elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-brand-lavender rounded-full opacity-20 blur-2xl animate-float"></div>
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-brand-pink rounded-full opacity-20 blur-2xl animate-float-delayed"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 bg-brand-lavender rounded-full opacity-15 blur-2xl animate-float transform-gpu"></div>
+        <div className="absolute bottom-20 right-20 w-40 h-40 bg-brand-pink rounded-full opacity-15 blur-2xl animate-float-delayed transform-gpu"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 transform hover:scale-105 transition-transform duration-300">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 transform hover:scale-105 transition-transform duration-200 transform-gpu">
             Comprehensive Cycle Support
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -69,19 +69,19 @@ const Features = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {featureItems.map((item, index) => (
-            <Link to={item.link} key={index} className="group">
-              <Card className="h-full border-2 border-muted hover:border-primary/20 transform transition-all duration-500 hover:scale-105 hover:-translate-y-4 hover:shadow-2xl perspective-1000 group-hover:rotate-1">
+            <Link to={item.link} key={index} className="group transform-gpu">
+              <Card className="h-full border-2 border-muted hover:border-primary/20 transform transition-all duration-200 hover:scale-105 hover:-translate-y-2 hover:shadow-xl perspective-1000 card-3d transform-gpu">
                 <CardContent className="p-6 flex flex-col items-center text-center relative overflow-hidden">
-                  {/* Gradient overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+                  {/* Optimized gradient overlay */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-8 transition-opacity duration-200`}></div>
                   
-                  <div className="rounded-full bg-primary/10 p-4 mb-4 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12 relative z-10">
+                  <div className="rounded-full bg-primary/10 p-4 mb-4 transform transition-all duration-200 group-hover:scale-110 relative z-10 transform-gpu">
                     {item.icon}
                   </div>
-                  <h3 className="text-xl font-medium mb-2 relative z-10 transform transition-all duration-300 group-hover:scale-105">
+                  <h3 className="text-xl font-medium mb-2 relative z-10 transform transition-all duration-200 group-hover:scale-105 transform-gpu">
                     {item.title}
                   </h3>
-                  <p className="text-muted-foreground relative z-10 transform transition-all duration-300 group-hover:scale-105">
+                  <p className="text-muted-foreground relative z-10 transform transition-all duration-200 group-hover:scale-105 transform-gpu">
                     {item.description}
                   </p>
                 </CardContent>
