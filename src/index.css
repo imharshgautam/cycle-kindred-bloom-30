@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 @tailwind base;
@@ -48,42 +49,42 @@
   }
 
   .dark {
-    --background: 220 13% 8%;
+    --background: 220 15% 3%;
     --foreground: 210 40% 98%;
 
-    --card: 220 13% 10%;
+    --card: 220 15% 5%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 220 13% 10%;
+    --popover: 220 15% 5%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 320 70% 70%;
-    --primary-foreground: 220 13% 8%;
+    --primary: 320 70% 65%;
+    --primary-foreground: 220 15% 3%;
 
-    --secondary: 260 30% 18%;
+    --secondary: 220 15% 8%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 220 13% 14%;
-    --muted-foreground: 210 40% 80%;
+    --muted: 220 15% 8%;
+    --muted-foreground: 210 20% 80%;
 
-    --accent: 180 30% 18%;
+    --accent: 220 15% 10%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 75% 55%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 25%;
-    --input: 220 13% 18%;
+    --border: 220 15% 15%;
+    --input: 220 15% 10%;
     --ring: 320 70% 60%;
 
     /* Enhanced sidebar variables for dark mode */
-    --sidebar-background: 220 13% 6%;
+    --sidebar-background: 220 15% 2%;
     --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 320 70% 70%;
-    --sidebar-primary-foreground: 220 13% 6%;
-    --sidebar-accent: 220 13% 12%;
+    --sidebar-primary: 320 70% 65%;
+    --sidebar-primary-foreground: 220 15% 2%;
+    --sidebar-accent: 220 15% 6%;
     --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 220 13% 20%;
+    --sidebar-border: 220 15% 12%;
     --sidebar-ring: 320 70% 60%;
   }
 }
@@ -106,9 +107,9 @@
 
   /* Enhanced dark mode background */
   .dark body {
-    background-image: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.08) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.08) 0%, transparent 50%),
-                      radial-gradient(circle at 40% 40%, rgba(120, 219, 226, 0.04) 0%, transparent 50%);
+    background-image: radial-gradient(circle at 20% 80%, rgba(147, 51, 234, 0.08) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(219, 39, 119, 0.08) 0%, transparent 50%),
+                      radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.04) 0%, transparent 50%);
   }
 
   /* Improved text contrast in dark mode */
@@ -126,6 +127,148 @@
 
   .dark .text-muted-foreground {
     color: hsl(var(--muted-foreground)) !important;
+  }
+
+  /* Fix white/light backgrounds in dark mode */
+  .dark .bg-white {
+    @apply bg-card;
+  }
+
+  .dark .bg-white\/80 {
+    @apply bg-card/90;
+  }
+
+  .dark .bg-white\/60 {
+    @apply bg-card/80;
+  }
+
+  .dark .bg-white\/70 {
+    @apply bg-card/85;
+  }
+
+  .dark .bg-white\/90 {
+    @apply bg-card/95;
+  }
+
+  /* Enhanced card backgrounds for dark mode */
+  .dark .backdrop-blur-md {
+    @apply bg-card/90;
+  }
+
+  .dark .backdrop-blur-sm {
+    @apply bg-card/85;
+  }
+
+  /* Fix gradient backgrounds for dark mode */
+  .dark .bg-gradient-to-r {
+    background-image: linear-gradient(to right, hsl(var(--card)), hsl(var(--accent)));
+  }
+
+  .dark .bg-gradient-to-br {
+    background-image: linear-gradient(to bottom right, hsl(var(--card)), hsl(var(--accent)));
+  }
+
+  /* Enhanced button styles for dark mode */
+  .dark .bg-blue-50 {
+    @apply bg-blue-900/30;
+  }
+
+  .dark .bg-pink-50 {
+    @apply bg-pink-900/30;
+  }
+
+  .dark .bg-yellow-50 {
+    @apply bg-yellow-900/30;
+  }
+
+  .dark .bg-green-50 {
+    @apply bg-green-900/30;
+  }
+
+  .dark .bg-purple-50 {
+    @apply bg-purple-900/30;
+  }
+
+  .dark .bg-gray-50 {
+    @apply bg-gray-800/50;
+  }
+
+  .dark .bg-gray-100 {
+    @apply bg-gray-800;
+  }
+
+  /* Dark mode badge fixes */
+  .dark .bg-rose-300 {
+    @apply bg-rose-600;
+  }
+
+  .dark .bg-pink-200 {
+    @apply bg-pink-700;
+  }
+
+  .dark .bg-blue-100 {
+    @apply bg-blue-800;
+  }
+
+  .dark .bg-slate-100 {
+    @apply bg-slate-700;
+  }
+
+  /* Enhanced text colors for badges in dark mode */
+  .dark .text-rose-900 {
+    @apply text-rose-100;
+  }
+
+  .dark .text-blue-800 {
+    @apply text-blue-100;
+  }
+
+  .dark .text-gray-700 {
+    @apply text-gray-200;
+  }
+
+  .dark .text-pink-800 {
+    @apply text-pink-100;
+  }
+
+  .dark .text-yellow-800 {
+    @apply text-yellow-100;
+  }
+
+  .dark .text-orange-900 {
+    @apply text-orange-100;
+  }
+
+  .dark .text-blue-700 {
+    @apply text-blue-200;
+  }
+
+  .dark .text-amber-700 {
+    @apply text-amber-200;
+  }
+
+  .dark .text-fuchsia-700 {
+    @apply text-fuchsia-200;
+  }
+
+  .dark .text-indigo-700 {
+    @apply text-indigo-200;
+  }
+
+  .dark .text-lime-700 {
+    @apply text-lime-200;
+  }
+
+  .dark .text-cyan-700 {
+    @apply text-cyan-200;
+  }
+
+  .dark .text-purple-700 {
+    @apply text-purple-200;
+  }
+
+  .dark .text-gray-600 {
+    @apply text-gray-300;
   }
 }
 
@@ -153,33 +296,61 @@
 
   /* Dark mode specific utilities */
   .dark-mode-shadow {
-    @apply dark:shadow-xl dark:shadow-black/20;
+    @apply dark:shadow-xl dark:shadow-black/50;
   }
 
   .dark-mode-border {
     @apply dark:border-border/50;
   }
 
-  /* Dark mode text fixes */
-  .dark .bg-white\/80 {
-    @apply dark:bg-card/90;
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
   }
 
-  .dark .bg-white\/60 {
-    @apply dark:bg-card/80;
+  /* Enhanced dark mode scrollbars */
+  .dark ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
   }
 
-  .dark .bg-white\/70 {
-    @apply dark:bg-card/85;
+  .dark ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
   }
 
-  /* Enhanced card backgrounds for dark mode */
-  .dark .backdrop-blur-md {
-    @apply dark:bg-card/95;
+  .dark ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground));
+    border-radius: 4px;
   }
 
-  .dark .backdrop-blur-sm {
-    @apply dark:bg-card/90;
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent-foreground));
+  }
+
+  /* Enhanced focus states for dark mode */
+  .dark *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Enhanced form inputs for dark mode */
+  .dark input[type="text"],
+  .dark input[type="email"],
+  .dark input[type="password"],
+  .dark textarea,
+  .dark select {
+    background-color: hsl(var(--input));
+    border-color: hsl(var(--border));
+    color: hsl(var(--foreground));
+  }
+
+  .dark input[type="text"]:focus,
+  .dark input[type="email"]:focus,
+  .dark input[type="password"]:focus,
+  .dark textarea:focus,
+  .dark select:focus {
+    border-color: hsl(var(--ring));
+    box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
   }
 }
 
@@ -188,7 +359,7 @@
 }
 
 .dark .gradient-background {
-  background: linear-gradient(135deg, rgba(120,119,198,0.2) 0%, rgba(255,119,198,0.2) 50%, rgba(120,219,226,0.2) 100%);
+  background: linear-gradient(135deg, rgba(147,51,234,0.1) 0%, rgba(219,39,119,0.1) 50%, rgba(59,130,246,0.1) 100%);
 }
 
 .card-hover {
@@ -201,7 +372,7 @@
 }
 
 .dark .card-hover:hover {
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.6);
 }
 
 /* Enhanced 3D and Parallax Animations with dark mode support */
@@ -261,10 +432,10 @@
 
 @keyframes glow-dark {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(120,119,198,0.3);
+    box-shadow: 0 0 20px rgba(147,51,234,0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(255,119,198,0.5);
+    box-shadow: 0 0 40px rgba(219,39,119,0.5);
   }
 }
 
@@ -299,7 +470,7 @@
 }
 
 .dark .card-3d:hover {
-  box-shadow: 0 35px 80px -12px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 35px 80px -12px rgba(0, 0, 0, 0.8);
 }
 
 /* Parallax Scroll Effects */
@@ -313,59 +484,5 @@
 }
 
 .dark .shadow-3xl {
-  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.5);
-}
-
-/* Dark mode specific enhancements */
-.dark {
-  color-scheme: dark;
-}
-
-.dark ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.dark ::-webkit-scrollbar-track {
-  background: hsl(var(--muted));
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted-foreground));
-  border-radius: 4px;
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--accent-foreground));
-}
-
-/* Improved form inputs for dark mode */
-.dark input[type="text"],
-.dark input[type="email"],
-.dark input[type="password"],
-.dark textarea,
-.dark select {
-  background-color: hsl(var(--input));
-  border-color: hsl(var(--border));
-  color: hsl(var(--foreground));
-}
-
-.dark input[type="text"]:focus,
-.dark input[type="email"]:focus,
-.dark input[type="password"]:focus,
-.dark textarea:focus,
-.dark select:focus {
-  border-color: hsl(var(--ring));
-  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Enhanced focus states for dark mode */
-.dark *:focus-visible {
-  outline: 2px solid hsl(var(--ring));
-  outline-offset: 2px;
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.7);
 }
