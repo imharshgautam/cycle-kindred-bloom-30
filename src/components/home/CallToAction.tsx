@@ -6,9 +6,9 @@ const CallToAction = () => {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto bg-gradient-to-r from-brand-pink/40 to-brand-lavender/40 rounded-2xl p-8 md:p-12 text-center relative overflow-hidden backdrop-blur-sm border border-border/20">
-          <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand-pink/40 rounded-full blur-2xl"></div>
-          <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-lavender/40 rounded-full blur-2xl"></div>
+        <div className="max-w-4xl mx-auto bg-gradient-to-r from-brand-pink/60 to-brand-lavender/60 rounded-2xl p-8 md:p-12 text-center relative overflow-hidden backdrop-blur-sm border border-border/20">
+          <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand-pink/60 rounded-full blur-2xl"></div>
+          <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-lavender/60 rounded-full blur-2xl"></div>
           
           <div className="relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Begin Your Wellness Journey Today</h2>

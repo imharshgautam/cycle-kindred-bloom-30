@@ -8,16 +8,16 @@ const Hero = () => {
 
   return (
     <div className="relative overflow-hidden min-h-screen transform-gpu" ref={heroRef}>
-      {/* Darker gradient background for light mode */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-muted/60 via-muted/40 to-muted/50"></div>
+      {/* Much darker gradient background for light mode */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-muted/80 via-muted/60 to-muted/70"></div>
       
-      {/* Optimized floating 3D elements with better performance */}
+      {/* Optimized floating 3D elements with much higher opacity */}
       <div className="absolute inset-0 z-5">
-        <div className="absolute top-20 left-10 w-16 h-16 bg-brand-pink/60 rounded-full animate-float transform-gpu"></div>
-        <div className="absolute top-40 right-20 w-12 h-12 bg-brand-lavender/60 rounded-full animate-float-delayed transform-gpu"></div>
-        <div className="absolute bottom-40 left-20 w-20 h-20 bg-brand-teal/60 rounded-full animate-float transform-gpu"></div>
-        <div className="absolute top-60 left-1/3 w-8 h-8 bg-brand-peach/60 rounded-full animate-float-delayed transform-gpu"></div>
-        <div className="absolute bottom-60 right-1/3 w-14 h-14 bg-brand-mint/60 rounded-full animate-float transform-gpu"></div>
+        <div className="absolute top-20 left-10 w-16 h-16 bg-brand-pink/75 rounded-full animate-float transform-gpu"></div>
+        <div className="absolute top-40 right-20 w-12 h-12 bg-brand-lavender/75 rounded-full animate-float-delayed transform-gpu"></div>
+        <div className="absolute bottom-40 left-20 w-20 h-20 bg-brand-teal/75 rounded-full animate-float transform-gpu"></div>
+        <div className="absolute top-60 left-1/3 w-8 h-8 bg-brand-peach/75 rounded-full animate-float-delayed transform-gpu"></div>
+        <div className="absolute bottom-60 right-1/3 w-14 h-14 bg-brand-mint/75 rounded-full animate-float transform-gpu"></div>
       </div>
       
       <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
