@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 @tailwind base;
@@ -50,28 +49,28 @@
 
   .dark {
     --background: 220 13% 9%;
-    --foreground: 300 20% 98%;
+    --foreground: 300 20% 95%;
 
     --card: 220 13% 11%;
-    --card-foreground: 300 20% 98%;
+    --card-foreground: 300 20% 95%;
 
     --popover: 220 13% 11%;
-    --popover-foreground: 300 20% 98%;
+    --popover-foreground: 300 20% 95%;
 
     --primary: 320 70% 70%;
     --primary-foreground: 220 13% 9%;
 
     --secondary: 260 30% 25%;
-    --secondary-foreground: 300 20% 98%;
+    --secondary-foreground: 300 20% 95%;
 
     --muted: 220 13% 15%;
-    --muted-foreground: 300 10% 65%;
+    --muted-foreground: 300 10% 75%;
 
     --accent: 180 30% 25%;
-    --accent-foreground: 300 20% 98%;
+    --accent-foreground: 300 20% 95%;
 
     --destructive: 0 75% 55%;
-    --destructive-foreground: 300 20% 98%;
+    --destructive-foreground: 300 20% 95%;
 
     --border: 220 13% 20%;
     --input: 220 13% 20%;
@@ -79,11 +78,11 @@
 
     /* Enhanced sidebar variables for dark mode */
     --sidebar-background: 220 13% 8%;
-    --sidebar-foreground: 300 20% 98%;
+    --sidebar-foreground: 300 20% 95%;
     --sidebar-primary: 320 70% 70%;
     --sidebar-primary-foreground: 220 13% 8%;
     --sidebar-accent: 220 13% 15%;
-    --sidebar-accent-foreground: 300 20% 98%;
+    --sidebar-accent-foreground: 300 20% 95%;
     --sidebar-border: 220 13% 18%;
     --sidebar-ring: 320 70% 60%;
   }
