@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
@@ -16,6 +15,7 @@ import { useToast } from "@/hooks/use-toast";
 import AIPrediction from "@/components/tracker/AIPrediction";
 import { CycleData } from "@/services/cyclePrediction";
 import HistoryTable from "@/components/tracker/HistoryTable";
+import PartnerSharing from "@/components/tracker/PartnerSharing";
 
 const symptomsOptions = [
   "Cramps", "Headache", "Backache", "Fatigue", 
@@ -179,6 +179,9 @@ const PeriodTracker = () => {
                     historicalData={historicalData}
                     lastPeriodDate={new Date("2024-12-15")}
                   />
+                </div>
+                <div className="animate-fade-in animation-delay-600">
+                  <PartnerSharing />
                 </div>
               </div>
 
