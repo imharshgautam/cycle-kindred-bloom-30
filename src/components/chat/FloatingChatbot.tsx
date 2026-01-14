@@ -89,17 +89,16 @@ const FloatingChatbot = () => {
     return (
       <Button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 w-16 h-16 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 bg-primary hover:bg-primary/90 hover:scale-110 z-[9999] animate-pulse hover:animate-none"
+        className="fixed bottom-6 right-6 w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 bg-primary hover:bg-primary/90 z-50"
         size="icon"
-        aria-label="Open chat assistant"
       >
-        <MessageCircle className="h-7 w-7" />
+        <MessageCircle className="h-6 w-6" />
       </Button>
     );
   }
 
   return (
-    <div className="fixed bottom-6 right-6 w-80 h-96 bg-background rounded-lg shadow-2xl border z-[9999] flex flex-col animate-fade-in">
+    <div className="fixed bottom-6 right-6 w-80 h-96 bg-white rounded-lg shadow-xl border z-50 flex flex-col animate-fade-in">
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b bg-primary rounded-t-lg">
         <div className="flex items-center gap-2">
